@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fa" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#173a2b"><meta name="description" content="Class Notes">
+<link rel="manifest" href="manifest.json"><link rel="stylesheet" href="style.css"><title>Class Notes</title></head>
+<body>
+<div class="world"><div class="sky"></div><div class="moon"></div><div class="sun"></div><div class="stars"></div><div class="fog fog1"></div><div class="forest forestBack"></div><div class="forest forestFront"></div><div class="fog fog2"></div></div>
+<div class="app-shell">
+<header class="topbar glass"><div class="brand"><img src="icons/icon-192.png" alt=""><div><h1>Class Notes</h1><p>مدرسه نت‌برداری</p></div></div><button id="themeBtn" class="orb" aria-label="تغییر روز و شب"><span>☀</span></button></header>
+<main>
+<section id="home" class="page active">
+<div class="hero glass"><div class="hero-glow"></div><div class="eyebrow">✦ فضای یادگیری شخصی تو</div><h2>هر جلسه را به<br><b>دانش قابل استفاده</b> تبدیل کن.</h2><p>نکات مهم جلسه را ثبت کن، پرامپت هوشمند بساز و خروجی Markdown بگیر.</p><button class="primary big" data-go="editor">شروع جلسه جدید <span>←</span></button></div>
+<div class="section-row"><h3>آخرین جلسات</h3><button class="textbtn" data-go="archive">مشاهده همه</button></div><div id="recent" class="notes-grid"></div>
+</section>
+<section id="editor" class="page">
+<div class="page-head"><div><span class="eyebrow">SESSION EDITOR</span><h2>جلسه جدید</h2></div><span id="saveState" class="status">آماده</span></div>
+<div class="glass card editor-card"><div class="fields"><label>نام درس<input id="subject" placeholder="مثلاً ریاضی"></label><label>عنوان جلسه<input id="title" placeholder="مثلاً معادلات"></label></div>
+<label>تاریخ<input id="date" type="date"></label>
+<label class="notes-label"><span>✦ نکات مهم جلسه</span><textarea id="notes" rows="11" placeholder="نکات مهمی که می‌خواهی بعداً هوش مصنوعی روی آن‌ها کار کند را اینجا بنویس..."></textarea></label>
+<div class="card-footer"><button class="ghost" id="clearBtn">پاک کردن</button><button class="primary" id="saveBtn">ذخیره جلسه</button><button class="icon-action" data-go="ai" title="AI">✦</button></div></div>
+</section>
+<section id="ai" class="page">
+<div class="page-head"><div><span class="eyebrow">AI WORKSPACE</span><h2>فضای هوش مصنوعی</h2></div><span class="status">بدون API</span></div>
+<div class="glass card"><label>نوع خروجی<select id="promptMode"><option value="summary">خلاصه و دسته‌بندی</option><option value="study">جزوه آموزشی</option><option value="quiz">سؤال تمرینی</option><option value="flashcards">فلش‌کارت</option></select></label>
+<div class="prompt-wrap"><div class="prompt-title"><span>پرامپت آماده</span><span class="pulse">● آماده</span></div><textarea id="prompt" rows="12" readonly></textarea></div>
+<div class="card-footer wrap"><button class="primary" id="copyPrompt">کپی پرامپت</button><button class="ghost aiopen" data-url="https://chatgpt.com">ChatGPT</button><button class="ghost aiopen" data-url="https://gemini.google.com">Gemini</button><button class="ghost aiopen" data-url="https://claude.ai">Claude</button></div><p class="hint">پرامپت را کپی کن، سرویس موردنظر را باز کن و Paste کن.</p></div>
+</section>
+<section id="archive" class="page"><div class="section-row"><div><span class="eyebrow">YOUR LIBRARY</span><h2>آرشیو جلسات</h2></div><button id="exportAll" class="ghost">خروجی همه</button></div><input id="searchNotes" class="search" placeholder="جستجو در جلسات..."><div id="archiveList" class="notes-grid"></div></section>
+<section id="settings" class="page"><div class="page-head"><div><span class="eyebrow">PERSONAL SPACE</span><h2>تنظیمات شخصی</h2></div></div>
+<div class="settings-stack">
+<div class="glass card setting-group"><h3>ظاهر</h3><label>تم<select id="themeSelect"><option value="system">مطابق دستگاه</option><option value="light">روشن</option><option value="dark">تیره</option></select></label><label>رنگ تأکیدی<select id="accent"><option value="green">جنگلی</option><option value="blue">آسمانی</option><option value="purple">بنفش شب</option></select></label></div>
+<div class="glass card setting-group"><h3>یادداشت‌ها</h3><label class="check"><input type="checkbox" id="autosave" checked><span>ذخیره خودکار پیش‌نویس</span></label></div>
+<div class="glass card setting-group"><h3>Obsidian</h3><p>جلسه‌ها را به صورت Markdown خروجی بگیر و داخل Vault ابسیدین قرار بده.</p><div class="card-footer"><button id="exportCurrent" class="ghost">خروجی Markdown</button></div></div>
+</div></section>
+</main>
+<nav class="glass"><button data-go="home" class="nav active"><span>⌂</span><small>خانه</small></button><button data-go="editor" class="nav"><span>✎</span><small>جلسه</small></button><button data-go="ai" class="nav ai-nav"><span>✦</span><small>AI</small></button><button data-go="archive" class="nav"><span>▤</span><small>آرشیو</small></button><button data-go="settings" class="nav"><span>⚙</span><small>تنظیمات</small></button></nav>
+</div><div id="toast"></div><script src="script.js"></script></body></html>
